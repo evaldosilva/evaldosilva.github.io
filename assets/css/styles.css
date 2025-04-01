@@ -1,13 +1,33 @@
 body {
   font-family: Arial;
-  margin: 10;
-  padding: 10; 
+  margin: 40;
+  padding: 40;
+  text-align: left;
 }
 
-h1, h2, h3 {
-  color: #333;
+img {
+  border-radius: 10%;
+}
+
+h1,
+h3 {
+  color: #279cc0;
+}
+
+h4 {
+  color: darkcyan;
 }
 
 p {
   line-height: 1.5;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  text-align: left;
+  padding: 30px;
 }
