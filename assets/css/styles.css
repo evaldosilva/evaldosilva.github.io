@@ -7,19 +7,26 @@ body {
 
 img {
   border-radius: 10%;
+  padding: 20px;
+  display: block;
+  margin: auto;
 }
 
 h1,
 h3 {
   color: #279cc0;
-  padding: 6px;
+  padding-bottom: 6px;
 }
 
 h4 {
   color: darkcyan;
-  padding: 6px;
+  padding-bottom: 6px;
 }
 
 p {
   line-height: 1.5;
+}
+
+.end-text {
+  margin-bottom: 50px;
 }
