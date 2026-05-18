@@ -1,99 +1,771 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <title>Evaldo Gomes Silva | Tech Lead & Senior Fullstack Developer</title>
     <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+        crossorigin="anonymous"
     />
-  </head>
-  <body>
-    <br />
-    <div class="container">
-      <div class="row">
-        <div class="col">
-          <img src="./assets/images/evaldo.jpg" />
-        </div>
-        <div class="col">
-          <h1>Hi, I’m Evaldo Gomes Silva</h1>
-          <h3>TECH LEAD/ </h3>
-          <h3>SENIOR FULLSTACK DEVELOPER</h3>
-          <h4>
-            <i>IT Professional | Lifelong Learner | Adventure Enthusiast</i>
-          </h4>
-          <p>
-            With <b>16+ years in the IT sector</b>, I’ve never lost my passion
-            for learning and teaching. That’s why I chose this field: technology
-            evolves by the minute, and that thrill of constant growth keeps me
-            energized. Whether it’s mastering a new tool, optimizing systems, or
-            sharing knowledge with peers, I believe curiosity and adaptability
-            are the keys to staying ahead.
-          </p>
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+        rel="stylesheet"
+    />
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #111118;
+            --bg-card: #16161f;
+            --bg-card-hover: #1c1c28;
+            --accent: #00e5a0;
+            --accent2: #5b8def;
+            --accent3: #c770f0;
+            --text-primary: #e8e8f0;
+            --text-secondary: #b0b0c0;
+            --text-muted: #7a7a90;
+            --border: #222230;
+            --border-light: #2a2a3a;
+            --glow-accent: 0 0 30px rgba(0, 229, 160, 0.2);
+            --glow-accent2: 0 0 30px rgba(91, 141, 239, 0.2);
+            --glow-accent3: 0 0 30px rgba(199, 112, 240, 0.2);
+            --radius: 20px;
+            --radius-sm: 12px;
+            --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-          <p>
-            When I’m not coding or troubleshooting, you’ll find me exploring
-            trails, traveling to new places, or diving into adrenaline-fueled
-            sports. Adventure fuels my creativity, both in tech and life!
-          </p>
-          <p>
-            <b>Let’s connect, </b>whether to geek out over emerging tech,
-            collaborate on projects, or swap travel stories!
-          </p>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+            line-height: 1.7;
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Animated background grid */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(0, 229, 160, 0.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 75% 30%, rgba(91, 141, 239, 0.05) 0%, transparent 60%),
+                radial-gradient(ellipse at 50% 70%, rgba(199, 112, 240, 0.04) 0%, transparent 60%),
+                radial-gradient(ellipse at 85% 80%, rgba(0, 229, 160, 0.03) 0%, transparent 50%);
+            background-size: 200% 200%;
+            animation: bgShift 20s ease-in-out infinite;
+        }
+
+        @keyframes bgShift {
+            0%,
+            100% {
+                background-position: 0% 0%;
+            }
+            25% {
+                background-position: 100% 0%;
+            }
+            50% {
+                background-position: 100% 100%;
+            }
+            75% {
+                background-position: 0% 100%;
+            }
+        }
+
+        /* Subtle dot pattern overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            opacity: 0.25;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1100px;
+            padding: 0 24px;
+        }
+
+        /* ── Nav spacer ── */
+        .nav-spacer {
+            height: 20px;
+        }
+
+        /* ── Hero Section ── */
+        .hero-row {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            padding: 30px 0 50px;
+            flex-wrap: wrap;
+        }
+
+        .hero-image-col {
+            flex: 0 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .hero-image-glow {
+            position: absolute;
+            inset: -12px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg,
+                    var(--accent),
+                    var(--accent2),
+                    var(--accent3),
+                    var(--accent));
+            animation: glowSpin 6s linear infinite;
+            filter: blur(25px);
+            opacity: 0.55;
+            z-index: 0;
+        }
+
+        @keyframes glowSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-image-frame {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.15);
+            background: var(--bg-card);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .hero-image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image-frame:hover img {
+            transform: scale(1.06);
+        }
+
+        .hero-image-frame:hover {
+            border-color: var(--accent);
+            box-shadow: var(--glow-accent);
+        }
+
+        .hero-text-col {
+            flex: 1 1 350px;
+            min-width: 280px;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 1.2px;
+            text-transform: uppercase;
+            background: rgba(0, 229, 160, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(0, 229, 160, 0.25);
+            margin-bottom: 16px;
+        }
+
+        .hero-name {
+            font-size: 2.8rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+            margin-bottom: 6px;
+            background: linear-gradient(135deg, #ffffff 0%, #c0c0d8 60%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--accent);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+        .hero-subtitle {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--accent2);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .hero-tagline {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+        .hero-tagline span {
+            background: var(--bg-card);
+            padding: 4px 12px;
+            border-radius: 50px;
+            font-style: normal;
+            font-size: 0.8rem;
+            border: 1px solid var(--border-light);
+            white-space: nowrap;
+        }
+        .hero-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 10px;
+            line-height: 1.75;
+        }
+        .hero-description b {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+        .hero-connect {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 8px;
+            padding: 10px 22px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, rgba(0, 229, 160, 0.15), rgba(91, 141, 239, 0.15));
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        .hero-connect:hover {
+            border-color: var(--accent);
+            box-shadow: var(--glow-accent);
+            color: #fff;
+            transform: translateY(-2px);
+        }
+        .hero-connect i {
+            font-size: 1.1rem;
+            color: var(--accent);
+        }
+
+        /* ── Section Divider ── */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-light), transparent);
+            margin: 10px 0 40px;
+            position: relative;
+        }
+        .section-divider::after {
+            content: '◆';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--accent);
+            font-size: 0.55rem;
+            background: var(--bg-primary);
+            padding: 0 14px;
+        }
+
+        /* ── Cards Grid ── */
+        .cards-row {
+            display: flex;
+            gap: 28px;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+        .card-col {
+            flex: 1 1 320px;
+            min-width: 280px;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 30px 28px;
+            height: 100%;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+        .info-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            border-radius: 3px 3px 0 0;
+            transition: var(--transition);
+        }
+        .info-card.card-it::before {
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+        }
+        .info-card.card-business::before {
+            background: linear-gradient(90deg, var(--accent2), var(--accent3));
+        }
+        .info-card:hover {
+            border-color: var(--border-light);
+            background: var(--bg-card-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+        .info-card:hover.card-it {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), var(--glow-accent);
+        }
+        .info-card:hover.card-business {
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), var(--glow-accent3);
+        }
+        .info-card h3 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.3px;
+        }
+        .card-it h3 {
+            color: var(--accent);
+        }
+        .card-business h3 {
+            color: var(--accent3);
+        }
+        .info-card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.75;
+            margin-bottom: 10px;
+        }
+        .info-card p:last-child {
+            margin-bottom: 0;
+        }
+        .info-card .card-icon {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            display: block;
+        }
+        .card-it .card-icon {
+            color: var(--accent);
+        }
+        .card-business .card-icon {
+            color: var(--accent3);
+        }
+
+        /* ── Skill Tags ── */
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 14px;
+        }
+        .skill-tag {
+            padding: 5px 13px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.4px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            transition: var(--transition);
+            white-space: nowrap;
+        }
+        .skill-tag:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            background: rgba(0, 229, 160, 0.06);
+            cursor: default;
+        }
+        .skill-tag.highlight {
+            border-color: rgba(0, 229, 160, 0.3);
+            color: var(--accent);
+            background: rgba(0, 229, 160, 0.08);
+        }
+
+        /* ── Footer ── */
+        .page-footer {
+            text-align: center;
+            padding: 30px 0 40px;
+            border-top: 1px solid var(--border);
+            margin-top: 20px;
+        }
+        .page-footer .footer-icons {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            margin-bottom: 14px;
+        }
+        .page-footer .footer-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+        .page-footer .footer-icons a:hover {
+            border-color: var(--accent);
+            color: var(--accent);
+            box-shadow: var(--glow-accent);
+            transform: translateY(-3px);
+        }
+        .page-footer p {
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            margin: 0;
+        }
+        .page-footer .heart {
+            color: #e74c3c;
+            animation: heartbeat 1.4s ease infinite;
+        }
+        @keyframes heartbeat {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+            15% {
+                transform: scale(1.25);
+            }
+            30% {
+                transform: scale(1);
+            }
+            45% {
+                transform: scale(1.2);
+            }
+            60% {
+                transform: scale(1);
+            }
+        }
+
+        /* ── Floating particle accents ── */
+        .floating-accent {
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            animation: floatAccent 14s ease-in-out infinite;
+        }
+        .floating-accent.accent-1 {
+            width: 300px;
+            height: 300px;
+            background: rgba(0, 229, 160, 0.12);
+            top: -80px;
+            right: -60px;
+            animation-delay: 0s;
+        }
+        .floating-accent.accent-2 {
+            width: 220px;
+            height: 220px;
+            background: rgba(199, 112, 240, 0.1);
+            bottom: -60px;
+            left: -50px;
+            animation-delay: -5s;
+        }
+        .floating-accent.accent-3 {
+            width: 180px;
+            height: 180px;
+            background: rgba(91, 141, 239, 0.1);
+            top: 50%;
+            left: 60%;
+            animation-delay: -9s;
+        }
+        @keyframes floatAccent {
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+            25% {
+                transform: translate(30px, -40px) scale(1.2);
+            }
+            50% {
+                transform: translate(-20px, 20px) scale(0.85);
+            }
+            75% {
+                transform: translate(-35px, -15px) scale(1.1);
+            }
+        }
+
+        /* ── Responsive ── */
+        @media (max-width: 768px) {
+            .hero-row {
+                flex-direction: column;
+                text-align: center;
+                gap: 28px;
+            }
+            .hero-image-wrapper {
+                width: 180px;
+                height: 180px;
+            }
+            .hero-name {
+                font-size: 2rem;
+            }
+            .hero-tagline {
+                justify-content: center;
+            }
+            .hero-connect {
+                justify-content: center;
+            }
+            .cards-row {
+                gap: 20px;
+            }
+            .info-card {
+                padding: 22px 20px;
+            }
+            .section-divider::after {
+                font-size: 0.45rem;
+                padding: 0 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-image-wrapper {
+                width: 140px;
+                height: 140px;
+            }
+            .hero-image-glow {
+                inset: -8px;
+                filter: blur(18px);
+            }
+            .hero-name {
+                font-size: 1.6rem;
+            }
+            .hero-title,
+            .hero-subtitle {
+                font-size: 0.85rem;
+                letter-spacing: 1px;
+            }
+            .hero-description {
+                font-size: 0.85rem;
+            }
+            .info-card h3 {
+                font-size: 1.1rem;
+            }
+            .info-card p {
+                font-size: 0.82rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating ambient accents -->
+    <div class="floating-accent accent-1"></div>
+    <div class="floating-accent accent-2"></div>
+    <div class="floating-accent accent-3"></div>
+
+    <div class="nav-spacer"></div>
+
+    <div class="container">
+        <!-- ═══════════ HERO SECTION ═══════════ -->
+        <div class="hero-row">
+            <!-- Profile Image -->
+            <div class="hero-image-col">
+                <div class="hero-image-wrapper">
+                    <div class="hero-image-glow"></div>
+                    <div class="hero-image-frame">
+                        <img src="./assets/images/evaldo.jpg" alt="Evaldo Gomes Silva" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Text -->
+            <div class="hero-text-col">
+                <div class="hero-badge">
+                    <i class="bi bi-terminal-fill"></i>&nbsp; Available for Opportunities
+                </div>
+                <h1 class="hero-name">Hi, I'm Evaldo Gomes Silva</h1>
+                <p class="hero-title">
+                    <i class="bi bi-stars"></i>&nbsp; Tech Lead
+                </p>
+                <p class="hero-subtitle">
+                    <i class="bi bi-code-slash"></i>&nbsp; Senior Fullstack Developer
+                </p>
+                <p class="hero-tagline">
+                    <span>🖥️ IT Professional</span>
+                    <span>📚 Lifelong Learner</span>
+                    <span>🏔️ Adventure Enthusiast</span>
+                </p>
+                <p class="hero-description">
+                    With <b>16+ years in the IT sector</b>, I've never lost my passion
+                    for learning and teaching. That's why I chose this field: technology
+                    evolves by the minute, and that thrill of constant growth keeps me
+                    energized. Whether it's mastering a new tool, optimizing systems, or
+                    sharing knowledge with peers, I believe curiosity and adaptability
+                    are the keys to staying ahead.
+                </p>
+                <p class="hero-description">
+                    When I'm not coding or troubleshooting, you'll find me exploring
+                    trails, traveling to new places, or diving into adrenaline-fueled
+                    sports. Adventure fuels my creativity, both in tech and life!
+                </p>
+                <a href="#connect" class="hero-connect">
+                    <i class="bi bi-chat-dots-fill"></i> Let's connect
+                    <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
         </div>
-      </div>
-      <div class="row end-text">
-        <div class="col">
-          <h3>IT Background</h3>
-          <p>
-            I have started early on IT, right after the graduation. I consider
-            myself lucky because I could start my carreer while studying and
-            never need to change, so I had the opportunity to be on contact with
-            programming languages my whole life.
-          </p>
-          <p>
-            That is where I say I could and still surf a lot of tech waves. For
-            curiosity, besides C#, Asp.Net, SQL language and Angular be my
-            strongest areas of proficiency, I already worked with ABAP on SAP
-            ECC, HANA, Netweaver Process Integration, Java, Java Server Pages
-            and Delphi.
-          </p>
-          <p>
-            Big Data is on my radar as well, and that is why I did a Masters
-            Degree on this area. Now we see IA and Chatbots as ChatGPT and
-            DeepSeek as hot trending topics, but Prediction and Forecast have a
-            strong potential as well, specially for companies.
-          </p>
+
+        <!-- Divider -->
+        <div class="section-divider"></div>
+
+        <!-- ═══════════ CARDS: IT & BUSINESS ═══════════ -->
+        <div class="cards-row">
+            <!-- IT Background Card -->
+            <div class="card-col">
+                <div class="info-card card-it">
+                    <i class="bi bi-cpu-fill card-icon"></i>
+                    <h3>IT Background</h3>
+                    <p>
+                        I started early on IT, right after graduation. I consider myself
+                        lucky because I could start my career while studying and never
+                        needed to change—so I had the opportunity to be in contact with
+                        programming languages my whole life.
+                    </p>
+                    <p>
+                        That is where I say I could—and still do—surf a lot of tech waves.
+                        Besides <strong>C#, ASP.NET, SQL</strong> and
+                        <strong>Angular</strong> being my strongest areas of proficiency,
+                        I've already worked with ABAP on SAP ECC, HANA, Netweaver Process
+                        Integration, Java, JSP, and Delphi.
+                    </p>
+                    <p>
+                        Big Data is on my radar as well, and that is why I did a Master's
+                        Degree in this area. Now we see AI and Chatbots like ChatGPT and
+                        DeepSeek as hot trending topics, but Prediction and Forecasting
+                        have strong potential too—especially for companies.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">C#</span>
+                        <span class="skill-tag highlight">ASP.NET</span>
+                        <span class="skill-tag highlight">SQL</span>
+                        <span class="skill-tag highlight">Angular</span>
+                        <span class="skill-tag">ABAP / SAP</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">Delphi</span>
+                        <span class="skill-tag">Big Data</span>
+                        <span class="skill-tag">AI / ML</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Business Background Card -->
+            <div class="card-col">
+                <div class="info-card card-business">
+                    <i class="bi bi-building card-icon"></i>
+                    <h3>Business Background</h3>
+                    <p>
+                        Talking about business areas, I've worked in
+                        <strong>Education, Banking and Accounting</strong>, where I've
+                        spent most of my career.
+                    </p>
+                    <p>
+                        These areas share many common aspects—data volume, type of
+                        information, and closing cycles (month-end close, year-close,
+                        reconciliations, reporting, and so on).
+                    </p>
+                    <p>
+                        The challenge in combining IT with these areas is to provide users
+                        with smart tools that streamline their processes—where they are
+                        the specialists—while ensuring compliance with regulations (such
+                        as GDPR, RGAA, MiFID II, etc.) without restricting their ability
+                        to make necessary adjustments. All of this must be achieved in a
+                        resilient and high-performing manner, of course.
+                    </p>
+                    <div class="skill-tags">
+                        <span class="skill-tag highlight">Education</span>
+                        <span class="skill-tag highlight">Banking</span>
+                        <span class="skill-tag highlight">Accounting</span>
+                        <span class="skill-tag">GDPR</span>
+                        <span class="skill-tag">MiFID II</span>
+                        <span class="skill-tag">Compliance</span>
+                        <span class="skill-tag">Reporting</span>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col">
-          <h3>Business Background</h3>
-          <p>
-            Talking about business areas, I already have worked on Education,
-            Banking and Accounting, where I have spent most part of my carreer.
-          </p>
-          <p>
-            These areas have a lot of common aspects, when talking about data
-            volume, kind of information and closing cycles (month-end close,
-            year-close, reconciliations, reporting and so on).
-          </p>
-          <p>
-            The challenge in combining IT with these areas is to provide users
-            with smart tools that streamline their processes—where they are the
-            specialists—while ensuring compliance with regulations (such as
-            GDPR, RGAA, MiFID II, etc.) without restricting their ability to
-            make necessary adjustments. All of this must be achieved in a
-            resilient and high-performing manner, of course.
-          </p>
+
+        <!-- ═══════════ FOOTER ═══════════ -->
+        <div class="page-footer" id="connect">
+            <div class="footer-icons">
+                <a href="#" title="LinkedIn" aria-label="LinkedIn">
+                    <i class="bi bi-linkedin"></i>
+                </a>
+                <a href="#" title="GitHub" aria-label="GitHub">
+                    <i class="bi bi-github"></i>
+                </a>
+                <a href="#" title="Email" aria-label="Email">
+                    <i class="bi bi-envelope-fill"></i>
+                </a>
+                <a href="#" title="Twitter / X" aria-label="Twitter">
+                    <i class="bi bi-twitter-x"></i>
+                </a>
+                <a href="#" title="Dev.to" aria-label="Dev.to">
+                    <i class="bi bi-code-square"></i>
+                </a>
+            </div>
+            <p>
+                Crafted with <span class="heart">♥</span> by Evaldo Gomes Silva &nbsp;|&nbsp;
+                &copy; 2026 — Let's build something amazing together.
+            </p>
         </div>
-      </div>
     </div>
+
     <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"
     ></script>
-  </body>
+</body>
 </html>
